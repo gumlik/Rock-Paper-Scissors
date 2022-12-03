@@ -1,24 +1,26 @@
-let weapons = ["rock", "paper", "scissors"];
+const weapons = ["rock", "paper", "scissors"];
 
 let getComputerChoice = weapons[Math.trunc(Math.random() * weapons.length)];
+let playerScore = 0;
+let compScore = 0;
 
 function playRound() {
   let userChoice = prompt();
   let getComputerChoice = weapons[Math.trunc(Math.random() * weapons.length)];
+
   if (getComputerChoice === userChoice) {
-    return "tie!";
   } else if (getComputerChoice === "rock" && userChoice === "paper") {
-    return "You win!";
+    playerScore++;
   } else if (getComputerChoice === "rock" && userChoice === "scissors") {
-    return "You lose :(";
+    compScore++;
   } else if (getComputerChoice === "paper" && userChoice === "rock") {
-    return "You lose!";
+    compScore++;
   } else if (getComputerChoice === "paper" && userChoice === "scissors") {
-    return "You win! :)";
+    playerScore++;
   } else if (getComputerChoice === "scissors" && userChoice === "rock") {
-    return "You win! :)";
+    playerScore++;
   } else if (getComputerChoice === "scissors" && userChoice === "paper") {
-    return "You lose :(";
+    compScore++;
   }
 }
 
@@ -26,6 +28,12 @@ function playFiveRounds() {
   for (let i = 0; i < 5; i++) {
     console.log(playRound());
   }
+  playerScore > compScore
+    ? alert("Player wins this match!")
+    : alert("Ai wins this match!");
 }
 
 playFiveRounds();
+
+console.log(playerScore);
+console.log(compScore);
