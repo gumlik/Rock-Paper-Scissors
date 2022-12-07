@@ -34,8 +34,9 @@ body {
 
 .choose {
   color: coral;
-  font-family: "Dark Larch PERSONAL USE ONLY";
-  font-size: 35px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
   background-color: rgb(253, 227, 218);
   margin: 1rem;
   border: 2px solid rgb(196, 196, 196);
@@ -68,7 +69,8 @@ body {
   display: flex;
 }
 
-.score {
+.player,
+.comp {
   border: 3px solid red;
   width: 50%;
   display: flex;
@@ -76,7 +78,8 @@ body {
   gap: 50%;
 }
 
-.dot {
+.player-score,
+.comp-score {
   font-size: 4rem;
   display: flex;
   justify-content: center;
@@ -87,7 +90,7 @@ body {
   border-radius: 50%;
 }
 
-.scores-title {
+.scores-titles {
   font-family: "Dark Larch PERSONAL USE ONLY";
   color: rgb(253, 227, 218);
   font-size: 25px;
@@ -95,8 +98,8 @@ body {
   display: flex;
 }
 
-.player-score,
-.comp-score {
+.your-title,
+.comp-title {
   border: 3px solid red;
   width: 50%;
   display: flex;
