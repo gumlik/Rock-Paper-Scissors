@@ -97,13 +97,17 @@
 // const compScoreDisplay = document.querySelector(".comp-score");
 // const choose = document.querySelector(".choose");
 
-let playerScore = document.querySelector(".player-score");
-let compScore = document.querySelector(".comp-score");
+const playerScoreDisplay = document.querySelector(".player-score");
+const compScoreDisplay = document.querySelector(".comp-score");
+const resultDisplay = document.querySelector(".choose");
 let choose = document.querySelector(".choose");
-const rockBtn = document.getElementById("rock");
-const paperBtn = document.getElementById("paper");
-const scissorsBtn = document.getElementById("scissors");
 const weapons = ["rock", "paper", "scissors"];
+
+let playerScore = 0;
+let compScore = 0;
+
+playerScoreDisplay.textContent = 0;
+compScoreDisplay.textContent = 0;
 
 const buttons = document.getElementsByTagName("input");
 for (const button of buttons) {
@@ -116,34 +120,73 @@ function takeTurn(e) {
   console.log(playerChoice);
 }
 function playRound() {
-  let getComputerChoice = weapons[Math.trunc(Math.random() * weapons.length)];
+  let computerChoice = weapons[Math.trunc(Math.random() * weapons.length)];
 
-  console.log(getComputerChoice);
-  if (getComputerChoice === playerChoice) {
-    document.querySelector(".choose").textContent = "Tie!";
-  } else if (getComputerChoice === "rock" && playerChoice === "paper") {
-    document.querySelector(".choose").textContent =
-      "You WON that round! The computer chose ROCK";
-    playerScore.innerHTML = Number(playerScore.innerHTML) + 1;
-  } else if (getComputerChoice === "rock" && playerChoice === "scissors") {
-    compScore.innerHTML = Number(compScore.innerHTML) + 1;
-    document.querySelector(".choose").textContent =
-      "You LOST that round :( The computer chose ROCK";
-  } else if (getComputerChoice === "paper" && playerChoice === "rock") {
-    compScore.innerHTML = Number(compScore.innerHTML) + 1;
-    document.querySelector(".choose").textContent =
-      "You LOST that round :( The computer chose PAPER";
-  } else if (getComputerChoice === "paper" && playerChoice === "scissors") {
-    playerScore.innerHTML = Number(playerScore.innerHTML) + 1;
-    document.querySelector(".choose").textContent =
-      "You WON that round! The computer chose PAPER";
-  } else if (getComputerChoice === "scissors" && playerChoice === "rock") {
-    playerScore.innerHTML = Number(playerScore.innerHTML) + 1;
-    document.querySelector(".choose").textContent =
-      "You WON that round! The computer chose SCISSORS";
-  } else if (getComputerChoice === "scissors" && playerChoice === "paper") {
-    compScore.innerHTML = Number(compScore.innerHTML) + 1;
-    document.querySelector(".choose").textContent =
-      "You LOST that round :( The computer chose SCISSORS";
+  if (computerChoice === playerChoice) {
+    resultDisplay.textContent = "Tie!";
+  } else if (
+    (computerChoice === "rock" && playerChoice === "paper") ||
+    (computerChoice === "paper" && playerChoice === "scissors") ||
+    (computerChoice === "scissors" && playerChoice === "rock")
+  ) {
+    playerScore++;
+    resultDisplay.textContent = `You won that round! The computer chose ${computerChoice}`;
+    playerScoreDisplay.textContent = playerScore;
+  } else if (
+    (computerChoice === "rock" && playerChoice === "scissors") ||
+    (computerChoice === "paper" && playerChoice === "rock") ||
+    (computerChoice === "scissors" && playerChoice === "paper")
+  ) {
+    compScore++;
+    resultDisplay.textContent = `You lost that round :( The computer chose ${computerChoice}`;
+    compScoreDisplay.textContent = compScore;
   }
 }
+
+//////////////////////////////////////////////////////////
+// const playerScoreDisplay = document.querySelector('.player-score'); // changed name
+// const compScoreDisplay = document.querySelector('.comp-score'); // changed name
+// let resultDisplay = document.querySelector('.choose'); // changed name
+// const rockBtn = document.getElementById('rock'); // delete this, you do not need
+// const paperBtn = document.getElementById('paper'); // delete this, you do not need
+// const scissorsBtn = document.getElementById('scissors'); // delete this, you do not need
+// const weapons = ['rock', 'paper', 'scissors'];
+// let playerScore = 0; // added this
+// let compScore = 0; // added this
+
+// // set initial score display to 0, could also do in HTML
+// playerScoreDisplay.textContent = 0;
+// compScoreDisplay.textContent = 0;
+
+// const buttons = document.getElementsByTagName('input');
+// for (const button of buttons) {
+// button.addEventListener('click', takeTurn);
+// }
+
+// function takeTurn(e) {
+// playerChoice = e.target.id;
+// playRound();
+// }
+// function playRound() {
+// let computerChoice = weapons[Math.trunc(Math.random() * 3)]; // changed to 3 hardcode
+
+// if (computerChoice === playerChoice) {
+// resultDisplay.textContent = 'Tie!';
+// } else if (
+// (computerChoice === 'rock' && playerChoice === 'paper') ||
+// (computerChoice === 'paper' && playerChoice === 'scissors') ||
+// (computerChoice === 'scissors' && playerChoice === 'rock')
+// ) {
+// playerScore++;
+// resultDisplay.textContent = `You won that round! The computer chose ${computerChoice}`;
+// playerScoreDisplay.textContent = playerScore;
+// } else if (
+// (computerChoice === 'rock' && playerChoice === 'scissors') ||
+// (computerChoice === 'paper' && playerChoice === 'rock') ||
+// (computerChoice === 'scissors' && playerChoice === 'paper')
+// ) {
+// compScore++;
+// resultDisplay.textContent = `You lost that round :( The computer chose ${computerChoice}`;
+// compScoreDisplay.textContent = compScore;
+// }
+// }
