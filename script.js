@@ -1,8 +1,26 @@
 const weapons = ["rock", "paper", "scissors"];
+const buttons = document.querySelectorAll(".btns");
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
 
 let getComputerChoice = weapons[Math.trunc(Math.random() * weapons.length)];
 let playerScore = 0;
 let compScore = 0;
+
+const pressButton = function () {
+  rock.addEventListener("click", (e) => {
+    return "rock";
+  });
+  paper.addEventListener("click", (e) => {
+    return "paper";
+  });
+  scissors.addEventListener("click", (e) => {
+    return "scissors";
+  });
+};
+
+buttons.forEach((element) => element.addEventListener("click", playRound()));
 
 function playRound() {
   let userChoice = prompt();
@@ -24,16 +42,16 @@ function playRound() {
   }
 }
 
-function playFiveRounds() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound());
-  }
-  playerScore > compScore
-    ? alert("Player wins this match!")
-    : alert("Ai wins this match!");
-}
+// function playFiveRounds() {
+//   for (let i = 0; i < 5; i++) {
+//     console.log(playRound());
+//   }
+//   playerScore > compScore
+//     ? alert("Player wins this match!")
+//     : alert("Ai wins this match!");
+// }
 
-playFiveRounds();
+// playFiveRounds();
 
-console.log(playerScore);
-console.log(compScore);
+// console.log(playerScore);
+// console.log(compScore);

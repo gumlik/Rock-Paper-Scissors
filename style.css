@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+.game-container {
+  max-width: 70%;
+  margin: 0 auto;
+  background-color: coral;
+  min-width: 450px;
+}
+
+.container {
+  text-align: center;
+  align-items: center;
+  border: 3px solid rgb(207, 61, 61);
+  padding: 1rem;
+}
+
+.title {
+  font-size: 5rem;
+  color: rgb(253, 227, 218);
+  font-family: "Dark Larch PERSONAL USE ONLY";
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  border: 3px solid red;
+  margin: 1.5rem;
+}
+
+.choose {
+  color: coral;
+  font-family: "Dark Larch PERSONAL USE ONLY";
+  font-size: 35px;
+  background-color: rgb(253, 227, 218);
+  margin: 1rem;
+  border: 2px solid rgb(196, 196, 196);
+  padding: 1rem 6rem;
+  border-radius: 25px;
+}
+
+.buttons {
+  border: 3px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 1rem;
+}
+
+#rock,
+#paper,
+#scissors {
+  border: 4px solid black;
+  display: flex;
+  width: auto;
+  height: 9rem;
+  width: 9rem;
+  border-radius: 25px;
+}
+
+.score-container {
+  border: 3px solid red;
+  display: flex;
+}
+
+.score {
+  border: 3px solid red;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 50%;
+}
+
+.dot {
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(253, 227, 218);
+  border-radius: 50%;
+}
+
+.scores-title {
+  font-family: "Dark Larch PERSONAL USE ONLY";
+  color: rgb(253, 227, 218);
+  font-size: 25px;
+  border: 3px solid red;
+  display: flex;
+}
+
+.player-score,
+.comp-score {
+  border: 3px solid red;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 50%;
+}
