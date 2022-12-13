@@ -27,6 +27,10 @@ body {
   animation: 3s infinite alternate slidein;
 }
 
+span {
+  font-size: 25px;
+}
+
 .choices {
   display: flex;
   justify-content: center;
@@ -48,6 +52,7 @@ body {
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -104,4 +109,12 @@ body {
   display: flex;
   justify-content: center;
   gap: 50%;
+}
+
+.five {
+  color: rgb(197, 53, 0);
+  font-size: 50px;
+  text-align: center;
+  border: 4px solid rgb(255, 166, 133);
+  border-radius: 25px;
 }
